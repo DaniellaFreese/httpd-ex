@@ -52,7 +52,7 @@ objects:
   metadata:
     annotations:
       description: Keeps track of changes in the application image
-    name: ${IS_NAME}
+    name: ${NAME}
 - apiVersion: v1
   kind: BuildConfig
   metadata:
@@ -64,7 +64,7 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: ${IS_NAME}:{TAG}
+        name: ${NAME}:${TAG}
     source:
       contextDir: ${CONTEXT_DIR}
       git:
@@ -126,7 +126,7 @@ objects:
         - httpd-example
         from:
           kind: ImageStreamTag
-          name: ${IS_NAME}:${TAG}
+          name: ${NAME}:${TAG}
       type: ImageChange
     - type: ConfigChange
 parameters:
@@ -149,7 +149,7 @@ parameters:
   displayName: Git Repository URL
   name: SOURCE_REPOSITORY_URL
   required: true
-  value: https://github.com/DaniellaFreese/httpd-ex.git
+  value: https://github.com/sclorg/httpd-ex.git
 - description: Set this to a branch name, tag or other ref of your repository if you
     are not using the default branch.
   displayName: Git Reference
@@ -173,7 +173,4 @@ parameters:
   from: '[a-zA-Z0-9]{40}'
   generate: expression
   name: GENERIC_WEBHOOK_SECRET
-- name: TAG 
-  value: latest
-- name: IS_NAME
-
+- name: TAG
