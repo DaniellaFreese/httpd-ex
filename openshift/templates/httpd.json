@@ -174,4 +174,6 @@ parameters:
   generate: expression
   name: GENERIC_WEBHOOK_SECRET
 - name: TAG 
-  value: latest 
+  value: latest
+- name: IS_NAME
+
