@@ -52,7 +52,7 @@ objects:
   metadata:
     annotations:
       description: Keeps track of changes in the application image
-    name: ${NAME}
+    name: ${IS_NAME}
 - apiVersion: v1
   kind: BuildConfig
   metadata:
@@ -64,7 +64,7 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: ${NAME}:latest
+        name: ${IS_NAME}:{TAG}
     source:
       contextDir: ${CONTEXT_DIR}
       git:
@@ -173,3 +173,5 @@ parameters:
   from: '[a-zA-Z0-9]{40}'
   generate: expression
   name: GENERIC_WEBHOOK_SECRET
+- name: TAG 
+  value: latest 
