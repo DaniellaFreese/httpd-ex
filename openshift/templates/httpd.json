@@ -126,7 +126,7 @@ objects:
         - httpd-example
         from:
           kind: ImageStreamTag
-          name: ${NAME}:latest
+          name: ${IS_NAME}:${TAG}
       type: ImageChange
     - type: ConfigChange
 parameters:
